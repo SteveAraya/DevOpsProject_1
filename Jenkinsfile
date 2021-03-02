@@ -36,7 +36,7 @@ pipeline {
                  }
                 echo 'Compilar'
                 sh 'npm install'
-                sh 'npm run start'
+
                 echo "Valor para sonar.branch.name: ${branchName}"
 
                 echo 'Cobertura'
@@ -55,10 +55,17 @@ pipeline {
 		       	}
 
                 echo 'Build'
-                sh 'npm run test' 
+                sh 'npm install'
 	       		// sh 'mvn clean package -Dmaven.test.skip=true' 
             }
         }
+
+        stage('Test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+      
         stage('Build Docker Image') { 
        		agent any
             steps {
