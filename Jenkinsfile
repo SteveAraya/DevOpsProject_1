@@ -39,30 +39,24 @@ pipeline {
 
                 echo "Valor para sonar.branch.name: ${branchName}"
 
-                echo 'Cobertura'
-                sh 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent install -DfailIfNoTests=false' 
-                //jacoco execPattern: '**/target/**.exec'
-                junit '**/target/surefire-reports/*.xml'
+                // echo 'Cobertura'
+                // sh 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent install -DfailIfNoTests=false' 
+                // //jacoco execPattern: '**/target/**.exec'
+                // junit '**/target/surefire-reports/*.xml'
 
 
-                echo 'Quality Gate'                
-                withSonarQubeEnv('SonarServer') {
-	        		sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar ${branchName}"
-		       	}	
-                sleep(30)	       	
-		       	timeout(time: 1, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-	        		waitForQualityGate abortPipeline: true
-		       	}
+                // echo 'Quality Gate'                
+                // withSonarQubeEnv('SonarServer') {
+	        	// 	sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar ${branchName}"
+		       	// }	
+                // sleep(30)	       	
+		       	// timeout(time: 1, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
+	        	// 	waitForQualityGate abortPipeline: true
+		       	// }
 
                 echo 'Build'
-                sh 'npm install'
-	       		// sh 'mvn clean package -Dmaven.test.skip=true' 
-            }
-        }
-
-        stage('Test') {
-            steps {
                 sh 'npm run test'
+	       		// sh 'mvn clean package -Dmaven.test.skip=true' 
             }
         }
 
