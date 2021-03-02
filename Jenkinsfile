@@ -65,7 +65,7 @@ pipeline {
                 sh 'npm run test'
             }
         }
-
+      
         stage('Build Docker Image') { 
        		agent any
             steps {
