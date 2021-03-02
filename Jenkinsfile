@@ -59,7 +59,7 @@ pipeline {
 	       		// sh 'mvn clean package -Dmaven.test.skip=true' 
             }
         }
-
+      
         stage('Build Docker Image') { 
        		agent any
             steps {
