@@ -54,8 +54,8 @@ pipeline {
 	        	// 	waitForQualityGate abortPipeline: true
 		       	// }
 
-                echo 'Build'
-                sh 'npm run test'
+                // echo 'Build'
+                // sh 'npm run test'
 	       		// sh 'mvn clean package -Dmaven.test.skip=true' 
             }
         }
