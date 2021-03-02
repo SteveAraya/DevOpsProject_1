@@ -36,3 +36,5 @@ app.use('/', routes);
 
 // Port listen.
 app.listen(port, () => { console.log('Application is Up in port \x1b[32m%s\x1b[0m', process.env.API_PORT) });
+
+module.exports = app;

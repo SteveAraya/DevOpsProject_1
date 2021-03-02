@@ -4,14 +4,18 @@
   "description": "Primer proyecto para la certificación de DevOps de la UCreativa.",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "NODE_ENV=test nodemon --exec 'mocha -R min'"
   },
   "author": "Adelso Steve Araya Solórzano",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^6.6.0"
+    "express-validator": "^6.6.0",
+    "mocha": "^8.3.0",
+    "supertest": "^6.1.3",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
