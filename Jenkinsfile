@@ -35,6 +35,7 @@ pipeline {
                     }
                  }
                 echo 'Compilar'
+                sh 'npm install'
                 sh 'npm run start'
                 echo "Valor para sonar.branch.name: ${branchName}"
 
